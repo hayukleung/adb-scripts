@@ -18,6 +18,6 @@ if [ 2 == $# ]; then
 fi
 
 echo 'execute like this: '
-echo '$ showCurrentActivity.sh'
+echo '$ showCurrentActivity'
 echo 'or'
-echo '$ showCurrentActivity.sh -s $device'
+echo '$ showCurrentActivity -s $device'

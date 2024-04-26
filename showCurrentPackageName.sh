@@ -16,6 +16,6 @@ if [ 2 == $# ]; then
 fi
 
 echo 'execute like this: '
-echo '$ showCurrentPackageName.sh'
+echo '$ showCurrentPackageName'
 echo 'or'
-echo '$ showCurrentPackageName.sh -s $device'
+echo '$ showCurrentPackageName -s $device'
