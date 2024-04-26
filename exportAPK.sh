@@ -3,25 +3,39 @@
 # go to directory of command
 cd "$(dirname "$0")"
 
-if [ 1 == $# ]; then
-    if [ ! -e $1 ]; then
-        mkdir -p $1
-    fi
-    adb pull $(adb shell pm path $(./showCurrentPackageName.sh) | awk -F "package:" '{print $2}') $1
-    exit 1
-fi
+devices=$(adb devices | grep -E 'device$' | awk -F ' ' '{print $1}')
 
-if [ 3 == $# ]; then
-    if [ '-s' == $1 ]; then
-        if [ ! -e $3 ]; then
-            mkdir -p $3
+echo "> choose your device: "
+echo ""
+ 
+select opt in $devices "exit"; do
+    case $opt in
+    "exit")
+        echo ""
+        echo "> exit"
+        break
+        ;;
+    *)
+        if [ -z $opt ]; then
+            echo ""
+            echo "> unknown option $REPLY"
+            break
         fi
-        adb -s $2 pull $(adb -s $2 shell pm path $(./showCurrentPackageName.sh $1 $2) | awk -F "package:" '{print $2}') $3
-        exit 1
-    fi
-fi
+        echo ""
+        echo "> you choose the device: $opt"
+        
+        packageName=$(adb -s "$opt" shell dumpsys activity | grep "mResume"            | awk '{printf $4}' | awk -F "}" '{print $1}' | awk -F '/' '{print $1}') 
+        
+        if [ -z $packageName ]; then
+            packageName=$(adb -s "$opt" shell dumpsys activity | grep "topResumedActivity" | awk '{printf $3}' | awk -F "}" '{print $1}' | awk -F '/' '{print $1}')
+        fi
 
-echo 'execute like this: '
-echo '$ exportAPK.sh $targetPath'
-echo 'or'
-echo '$ exportAPK.sh -s $device $targetPath'
+        adb -s "$opt" pull $(adb -s "$opt" shell pm path $packageName | awk -F "package:" '{print $2}') $1
+
+        break
+        ;;    
+    esac
+done
+
+# echo 'execute like this: '
+# echo '$ exportAPK.sh $targetPath'
