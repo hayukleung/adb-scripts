@@ -7,7 +7,7 @@
 
 ## 命令解析
 
-|||
+|command|description|
 |:--:|:--:|
 |abi|查看 CPU 架构|
 |devices|可选择目标设备的 adb -s 封装|
