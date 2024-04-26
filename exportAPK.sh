@@ -24,7 +24,7 @@ select opt in $devices "exit"; do
         echo ""
         echo "> you choose the device: $opt"
         
-        packageName=$(adb -s "$opt" shell dumpsys activity | grep "mResume"            | awk '{printf $4}' | awk -F "}" '{print $1}' | awk -F '/' '{print $1}') 
+        packageName=$(adb -s "$opt" shell dumpsys activity | grep "mResume" | awk '{printf $4}' | awk -F "}" '{print $1}' | awk -F '/' '{print $1}') 
         
         if [ -z $packageName ]; then
             packageName=$(adb -s "$opt" shell dumpsys activity | grep "topResumedActivity" | awk '{printf $3}' | awk -F "}" '{print $1}' | awk -F '/' '{print $1}')
