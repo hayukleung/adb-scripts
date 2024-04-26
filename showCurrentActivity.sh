@@ -3,21 +3,30 @@
 # go to directory of command
 cd "$(dirname "$0")"
 
-if [ 0 == $# ]; then
-    adb shell dumpsys activity | grep "mResume"            | awk '{printf $4}' | awk -F "}" '{print $1}' # <= android 12
-    adb shell dumpsys activity | grep "topResumedActivity" | awk '{printf $3}' | awk -F "}" '{print $1}' # >= android 13
-    exit 1
-fi
 
-if [ 2 == $# ]; then
-    if [ '-s' == $1 ]; then
-        adb -s $2 shell dumpsys activity | grep "mResume"            | awk '{printf $4}' | awk -F "}" '{print $1}' # <= android 12
-        adb -s $2 shell dumpsys activity | grep "topResumedActivity" | awk '{printf $3}' | awk -F "}" '{print $1}' # >= android 13
-        exit 1
-    fi
-fi
+devices=$(adb devices | grep -E 'device$' | awk -F ' ' '{print $1}')
 
-echo 'execute like this: '
-echo '$ showCurrentActivity'
-echo 'or'
-echo '$ showCurrentActivity -s $device'
+echo "> choose your device: "
+echo ""
+ 
+select opt in $devices "exit"; do
+    case $opt in
+    "exit")
+        echo ""
+        echo "> exit"
+        break
+        ;;
+    *)
+        if [ -z $opt ]; then
+            echo ""
+            echo "> unknown option $REPLY"
+            break
+        fi
+        echo ""
+        echo "> you choose the device: $opt"
+        adb -s "$opt" shell dumpsys activity | grep "mResume"            | awk '{printf $4}' | awk -F "}" '{print $1}' # <= android 12
+        adb -s "$opt" shell dumpsys activity | grep "topResumedActivity" | awk '{printf $3}' | awk -F "}" '{print $1}' # >= android 13
+        break
+        ;;    
+    esac
+done
