@@ -23,6 +23,7 @@ select opt in $devices "exit"; do
         fi
         echo ""
         echo "> you choose the device: $opt"
+        adb -s "$opt" $1
         break
         ;;    
     esac
@@ -30,6 +31,4 @@ done
  
 
 # echo 'execute like this: '
-# echo '$ abi'
-# echo 'or'
-# echo '$ abi -s $device'
+# echo '$ devices $command'
