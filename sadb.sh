@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # go to directory of command
-cd "$(dirname "$0")"
+# cd "$(dirname "$0")"
 
 devices=$(adb devices | grep -E 'device$' | awk -F ' ' '{print $1}')
 
