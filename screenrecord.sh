@@ -1,6 +1,6 @@
 #!/bin/bash
 
 # go to directory of command
-cd "$(dirname "$0")"
+# cd "$(dirname "$0")"
 
-./devices "shell screenrecord sdcard/test01.mp4"
+sadb shell screenrecord sdcard/test01.mp4
