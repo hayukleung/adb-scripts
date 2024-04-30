@@ -10,10 +10,10 @@
 |command|description|
 |:--:|:--:|
 |abi|查看 CPU 架构|
-|devices|可选择目标设备的 adb -s 封装|
 |exportAPK|导出当前页面对应的 APK 安装包|
 |gfxinfo|查看当前页面的渲染情况|
 |home|跳转桌面|
+|sadb|带设备选择功能的 adb|
 |screencap|截图并导出指定目录|
 |screenrecord|开始录制屏幕|
 |screenrecordExport|录屏文件导出指定目录|
