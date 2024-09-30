@@ -18,6 +18,7 @@
 |screencap|截图并导出指定目录|
 |screenrecord|开始录制屏幕|
 |screenrecordExport|录屏文件导出指定目录|
+|settings|跳转系统设置页面|
 |shell|可选择目标设备的 adb -s shell 封装|
 |showCurrentActivity|查看当前页面的 activity 类名|
 |showCurrentPackageName|查看当前页面对应的包名|
