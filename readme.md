@@ -10,10 +10,13 @@
 |command|description|
 |:--:|:--:|
 |abi|查看 CPU 架构|
+|browser|系统浏览器打开|
 |db|查看指定包名、数据库名、表名下的数据库表内容|
+|devices||
 |exportAPK|导出当前页面对应的 APK 安装包|
 |gfxinfo|查看当前页面的渲染情况|
 |home|跳转桌面|
+|input|键盘输入|
 |sadb|带设备选择功能的 adb|
 |screencap|截图并导出指定目录|
 |screenrecord|开始录制屏幕|

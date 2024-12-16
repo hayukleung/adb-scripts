@@ -3,6 +3,12 @@
 # go to directory of command
 # cd "$(dirname "$0")"
 
+if [ "$1" == "-h" ]; then
+    cd "$(dirname "$0")"
+    cat readme.md
+    exit 0
+fi
+
 devices=$(adb devices | grep -E 'device$' | awk -F ' ' '{print $1}')
 
 echo "> choose your device: "
