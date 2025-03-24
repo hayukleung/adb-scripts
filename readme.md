@@ -18,6 +18,7 @@
 |home|跳转桌面|
 |input|键盘输入|
 |sadb|带设备选择功能的 adb|
+|scrcpy-selector|带设备选择功能的 scrcpy|
 |screencap|截图并导出指定目录|
 |screenrecord|开始录制屏幕|
 |screenrecordExport|录屏文件导出指定目录|
