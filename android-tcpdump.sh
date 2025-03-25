@@ -5,4 +5,4 @@
 
 path="/sdcard/capture.pcap"
 echo "start tcpdump, pcap file will be saved in $path"
-sadb shell tcpdump -i any -w "$path" # 默认 262144 bytes
+sadb shell tcpdump -i any -s 262144 -w "$path" # 默认 262144 bytes

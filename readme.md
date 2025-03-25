@@ -10,6 +10,7 @@
 |command|description|
 |:--:|:--:|
 |abi|查看 CPU 架构|
+|android-tcpdump|tcpdump 抓包|
 |browser|系统浏览器打开|
 |db|查看指定包名、数据库名、表名下的数据库表内容|
 |devices||
