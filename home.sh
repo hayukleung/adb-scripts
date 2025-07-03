@@ -3,4 +3,4 @@
 # go to directory of command
 # cd "$(dirname "$0")"
 
-sadb shell input keyevent 3
+sadb.sh shell input keyevent 3

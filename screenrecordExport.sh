@@ -6,4 +6,4 @@
 if [ ! -d $1 ]; then
     mkdir -p $1
 fi
-sadb pull sdcard/test01.mp4 $1
+sadb.sh pull sdcard/test01.mp4 $1

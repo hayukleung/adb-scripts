@@ -3,4 +3,4 @@
 # go to directory of command
 # cd "$(dirname "$0")"
 
-sadb shell
+sadb.sh shell

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "use sadb instead"
+echo "use sadb.sh instead"
 
 # go to directory of command
 # cd "$(dirname "$0")"
